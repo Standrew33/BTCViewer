@@ -1,0 +1,35 @@
+﻿<Window x:Class="BTCViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BTCViewer" 
+        xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+        mc:Ignorable="d"
+        Title="BTCViewer" Height="472" Width="995">
+    <Grid Margin="0,0,0,-16">
+        <TabControl x:Name="tabControl" Margin="0,0,0,10">
+            <TabItem Header="Live">
+                <Grid Background="#FFE5E5E5" Height="435" Margin="-2,0,-4,0">
+                    <DataGrid x:Name="dataGridLive" Margin="10,49,10,74" ItemsSource="{Binding BTCInfo}"/>
+                    <Button x:Name="saveDB" Content="Save" Margin="853,366,10,42" Click="saveDB_Click"/>
+                    <Label x:Name="updated" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="updatedISO" Content="" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="updatedUK" Content="" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"/>
+                    <Label x:Name="czkRateLabel" Content="" HorizontalAlignment="Left" Margin="10,366,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Saved">
+                <Grid Background="#FFE5E5E5" Height="445">
+                    <DataGrid x:Name="dataGridDB" Height="NaN" Margin="0,0,0,74"/>
+                    <Button x:Name="delete" Content="Delete" Margin="0,376,10,38" Click="delete_Click" HorizontalAlignment="Right" Width="124"/>
+                    <Button x:Name="updateDB" Content="Update" Margin="0,376,139,38" Click="updateDB_Click" HorizontalAlignment="Right" Width="116"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Graph">
+                <ScottPlot:WpfPlot x:Name="BtcGraph"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
